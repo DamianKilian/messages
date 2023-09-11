@@ -45,7 +45,8 @@ export default {
             let formData = new FormData(myForm);
             axios.post('/new', formData, {
                 headers: {
-                    'Content-Type': 'multipart/form-data'
+                    'Content-Type': 'multipart/form-data',
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
                 }
             })
                 .then(function (response) {

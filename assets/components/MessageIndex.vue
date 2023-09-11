@@ -77,22 +77,6 @@ export default {
         };
     },
     methods: {
-        messageNewSubmit(e) {
-            e.preventDefault();
-            let myForm = document.getElementById('messageNewSubmit');
-            let formData = new FormData(myForm);
-            axios.post('/new', formData, {
-                headers: {
-                    'Content-Type': 'multipart/form-data'
-                }
-            })
-                .then(function (response) {
-                    console.log(response.data);
-                })
-                .catch(function (error) {
-                    console.log(error);
-                });
-        },
         sortByDate(e) {
             e.preventDefault();
             var that = this;

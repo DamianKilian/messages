@@ -41,7 +41,7 @@ class MessageController extends AbstractController
         $message = new Message();
         $form = $this->createForm(MessageType::class, $message);
         $form->handleRequest($request);
-        if ($form->isValid()) {
+        if ($form->isValid() && $this->isCsrfTokenValid('token', $request->headers->get('X-CSRF-TOKEN'))) {
             $entityManager->persist($message);
             $entityManager->flush();
             $messages = $messageRepository->getMessages();
