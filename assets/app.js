@@ -6,4 +6,19 @@
  */
 
 // any CSS you import will output into a single css file (app.css in this case)
-import './styles/app.css';
+import './styles/app.scss';
+
+import axios from 'axios';
+import {createApp} from 'vue';
+
+
+window.axios = axios;
+const app = createApp({});
+
+
+import MessageIndex from './components/MessageIndex.vue';
+app.component('message-index', MessageIndex)
+import MessageNew from './components/MessageNew.vue';
+app.component('message-new', MessageNew)
+
+app.mount("#app");
